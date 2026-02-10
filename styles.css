@@ -58,20 +58,27 @@ a{ color: inherit; text-decoration: none; }
 /* Scroll lock when mobile nav is open */
 body.nav-open{ overflow: hidden; }
 
-/* Scroll reveal */
+/* Progressive enhancement:
+   Default: visible content.
+   Only animate reveal when JS adds html.js */
 .reveal{
+  opacity: 1;
+  transform: none;
+}
+
+html.js .reveal{
   opacity: 0;
   transform: translateY(18px);
   transition: opacity 700ms ease, transform 700ms cubic-bezier(.2,.9,.2,1);
   will-change: opacity, transform;
 }
-.reveal.in-view{
+html.js .reveal.in-view{
   opacity: 1;
   transform: translateY(0);
 }
 @media (prefers-reduced-motion: reduce){
   html{ scroll-behavior: auto; }
-  .reveal{
+  html.js .reveal{
     opacity: 1;
     transform: none;
     transition: none;
@@ -199,7 +206,7 @@ body.nav-open{ overflow: hidden; }
   color: #fff;
 }
 
-/* Nav Toggle (Hamburger) Base */
+/* Nav Toggle */
 .nav-toggle{
   display:none;
   width: 44px;
