@@ -1,570 +1,1061 @@
-<!-- index.html -->
-<!doctype html>
-<html lang="en-US">
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+:root{
+  --bg: #fdfcfb;
+  --card: rgba(255,255,255,0.85);
+  --card2: #ffffff;
+  --card3: rgba(255,255,255,0.65);
 
-  <meta name="robots" content="noindex, nofollow" />
+  --text: #2c3639;
+  --muted: #5f6c70;
 
-  <title>Erica Sanborn Lindgren, PhD | Psychologist in Santa Monica, CA</title>
-  <meta name="description" content="Erica Sanborn Lindgren, PhD is a psychologist in Santa Monica, CA offering in-person and online therapy for adults and couples. Specialties include anxiety, depression, and relationship issues. Free 15-minute phone consultation." />
+  --soft: rgba(63, 78, 79, 0.05);
+  --line: rgba(63, 78, 79, 0.12);
 
-  <meta property="og:title" content="Erica Sanborn Lindgren, PhD | Psychologist in Santa Monica" />
-  <meta property="og:description" content="Warm, direct therapy for adults and couples — in-person and online. Free 15-minute phone consultation." />
-  <meta property="og:type" content="website" />
-  <meta property="og:image" content="erica-sanborn-lindgren-hero.webp" />
+  --accent: #7c9473;   /* Sage Green */
+  --accent2: #cfb997;  /* Warm Sand */
 
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500&display=swap" rel="stylesheet">
+  --shadow: 0 18px 60px rgba(44, 54, 57, 0.08);
+  --radius: 12px;
+  --radius2: 16px;
+  --max: 1120px;
 
-  <link rel="stylesheet" href="styles.css" />
+  --font: "Inter", system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  --serif: "Playfair Display", Georgia, serif;
+}
 
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "Psychologist",
-    "name": "Erica Sanborn Lindgren",
-    "honorificSuffix": "PhD",
-    "address": {
-      "@type": "PostalAddress",
-      "streetAddress": "270 26th Street, Suite 202",
-      "addressLocality": "Santa Monica",
-      "addressRegion": "CA",
-      "postalCode": "90402",
-      "addressCountry": "US"
-    },
-    "telephone": "+14243178124",
-    "areaServed": "Santa Monica, Los Angeles County, CA",
-    "priceRange": "$250",
-    "availableService": [
-      "Individual therapy",
-      "Couples therapy",
-      "Online therapy",
-      "In-person therapy"
-    ]
+*{ box-sizing: border-box; }
+html{ scroll-behavior: smooth; }
+body{
+  margin:0;
+  font-family: var(--font);
+  background:
+    radial-gradient(1100px 700px at 18% -10%, rgba(124, 148, 115, 0.15), transparent 55%),
+    radial-gradient(900px 600px at 92% 5%, rgba(207, 185, 151, 0.15), transparent 52%),
+    var(--bg);
+  color: var(--text);
+}
+
+img{ max-width:100%; display:block; }
+a{ color: inherit; text-decoration: none; }
+.container{
+  width: min(var(--max), calc(100% - 40px));
+  margin: 0 auto;
+}
+
+.sr-only{
+  position:absolute;
+  width:1px;height:1px;
+  padding:0;margin:-1px;
+  overflow:hidden;clip:rect(0,0,0,0);
+  border:0;
+}
+
+.muted{ color: var(--muted); }
+.small{ font-size: 13px; line-height: 1.5; }
+.center{ text-align: center; }
+.mt-20{ margin-top: 20px; }
+
+/* Scroll reveal */
+.reveal{
+  opacity: 0;
+  transform: translateY(18px);
+  transition: opacity 700ms ease, transform 700ms cubic-bezier(.2,.9,.2,1);
+  will-change: opacity, transform;
+}
+.reveal.in-view{
+  opacity: 1;
+  transform: translateY(0);
+}
+@media (prefers-reduced-motion: reduce){
+  html{ scroll-behavior: auto; }
+  .reveal{
+    opacity: 1;
+    transform: none;
+    transition: none;
   }
-  </script>
-</head>
-
-<body>
-  <header class="header" id="top">
-    <div class="container header-inner">
-      <a class="logo" href="#top" aria-label="Home">
-        <span class="logo-stack">
-          <span class="logo-text">Erica Sanborn Lindgren</span>
-          <span class="logo-sub">Psychologist, PhD • CA License PSY31500</span>
-        </span>
-      </a>
-
-      <nav class="nav" aria-label="Primary navigation">
-        <button class="nav-toggle" id="navToggle" aria-expanded="false" aria-controls="navPanel">
-          <span class="nav-toggle-lines" aria-hidden="true"></span>
-          <span class="sr-only">Open menu</span>
-        </button>
-
-        <div class="nav-panel" id="navPanel">
-          <a class="nav-link" href="#about">About</a>
-          <a class="nav-link" href="#approach">Approach</a>
-          <a class="nav-link" href="#specialties">Specialties</a>
-          <a class="nav-link" href="#fees">Fees & Insurance</a>
-          <a class="nav-link" href="#faq">FAQ</a>
-          <a class="nav-link nav-cta" href="#contact">Free Consultation</a>
-        </div>
-      </nav>
-    </div>
-  </header>
-
-  <section class="hero">
-    <div class="container hero-inner">
-      <div class="hero-copy reveal">
-        <p class="kicker">Therapy in Santa Monica • In-person & Online</p>
-        <h1 class="hero-title">A safe place to be real.<br>And a clear path forward.</h1>
-        <p class="hero-lead">
-          If you’re feeling overwhelmed, dissatisfied, disengaged from your life and your relationships, or just feel like something is getting in the way of living the life you really want,
-          therapy can help you understand why and learn skills to improve the situations causing you distress now.
-        </p>
-
-        <div class="hero-actions">
-          <a class="btn btn-primary" href="#contact">Book free 15-minute consult</a>
-          <a class="btn btn-ghost" href="tel:+14243178124">Call (424) 317-8124</a>
-        </div>
-
-        <div class="trust-row" aria-label="Credentials">
-          <div class="trust-pill">
-            <span class="trust-icon" aria-hidden="true">✓</span>
-            <span>Adults & Couples</span>
-          </div>
-          <div class="trust-pill">
-            <span class="trust-icon" aria-hidden="true">✓</span>
-            <span>In-person & Online</span>
-          </div>
-          <div class="trust-pill">
-            <span class="trust-icon" aria-hidden="true">✓</span>
-            <span>Anxiety • Depression • Relationships</span>
-          </div>
-        </div>
-      </div>
-
-      <div class="hero-card reveal">
-        <div class="hero-image-wrap">
-          <img
-            class="hero-image"
-            src="erica-sanborn-lindgren-hero.webp"
-            alt="Erica Sanborn Lindgren, Psychologist, PhD"
-            loading="eager"
-          />
-        </div>
-
-        <div class="hero-card-body">
-          <h2 class="card-title">Warm, direct, collaborative</h2>
-          <p class="card-text">
-            You can expect me to be warm and compassionate as well as direct and straightforwardly honest.
-            My goal is to provide a safe place where you can be your authentic and genuine self.
-          </p>
-        </div>
-      </div>
-    </div>
-
-    <div class="hero-bg" aria-hidden="true"></div>
-  </section>
-
-  <section class="ribbon" aria-label="Quick contact">
-    <div class="container ribbon-inner reveal">
-      <div class="ribbon-left">
-        <span class="badge">Free 15-minute consultation</span>
-        <span class="muted small">Reach out to see if we may work well together</span>
-      </div>
-
-      <div class="ribbon-right">
-        <a class="toplink" href="tel:+14243178124">(424) 317-8124</a>
-        <span class="dot">•</span>
-        <a class="toplink" href="#contact">Let’s Connect</a>
-      </div>
-    </div>
-  </section>
-
-  <section class="section" id="about">
-    <div class="container split">
-      <div class="reveal">
-        <div class="bio-head" aria-label="Therapist profile">
-          <div class="bio-avatar">
-            <img
-              src="erica-sanborn-lindgren-portrait.webp"
-              alt="Photo of Erica Sanborn Lindgren, Psychologist, PhD"
-              loading="lazy"
-            />
-          </div>
-          <div>
-            <p class="bio-kicker">Erica Sanborn Lindgren</p>
-            <p class="bio-sub">Psychologist, PhD</p>
-          </div>
-        </div>
-
-        <h2 class="section-title">Therapy that builds insight and change</h2>
-        <p class="section-lead">
-          I use a psychoanalytic and collaborative relational approach to engage your curiosity about how early experiences,
-          unconscious motivations, thoughts, or fears may contribute to your life today.
-          Together, we will work to foster compassion for your struggles and motivation to create the life you desire.
-        </p>
-
-        <p class="muted">
-          Research has shown that the most important factor in predicting successful therapy is the relationship between you and your therapist,
-          but finding the right therapist can be challenging. If you’re interested in finding out if we may work well together,
-          please reach out for a free phone consultation. I look forward to hearing from you.
-        </p>
-
-        <div class="cta-strip">
-          <a class="btn btn-primary" href="#contact">Request your free consult</a>
-          <a class="btn btn-ghost" href="tel:+14243178124">Call now</a>
-        </div>
-      </div>
-
-      <aside class="info-card reveal" aria-label="Practice at a glance">
-        <h3 class="info-title">My Practice at a Glance</h3>
-
-        <div class="info-grid">
-          <div class="info-item">
-            <p class="info-k">Availability</p>
-            <p class="info-v">In-person & Online</p>
-          </div>
-
-          <div class="info-item">
-            <p class="info-k">Office</p>
-            <p class="info-v">270 26th Street<br>Suite 202<br>Santa Monica, CA 90402</p>
-          </div>
-
-          <div class="info-item">
-            <p class="info-k">Phone</p>
-            <p class="info-v">(424) 317-8124</p>
-          </div>
-
-          <div class="info-item">
-            <p class="info-k">Focus</p>
-            <p class="info-v">Anxiety, Depression, Relationship Issues</p>
-          </div>
-
-          <div class="info-item">
-            <p class="info-k">Clients</p>
-            <p class="info-v">Individuals & Couples</p>
-          </div>
-
-          <div class="info-item">
-            <p class="info-k">Fee</p>
-            <p class="info-v">$250 / Session</p>
-          </div>
-        </div>
-
-        <a class="btn btn-primary btn-full" href="#contact">Book free 15-minute consult</a>
-
-        <p class="small muted mt-20">
-          Sliding scale may be available. Please ask if you may be eligible.
-        </p>
-      </aside>
-    </div>
-  </section>
-
-  <section class="section section-alt" id="approach">
-    <div class="container split">
-      <div class="reveal">
-        <h2 class="section-title">Approach</h2>
-        <p class="section-lead">
-          Therapy can help you understand what keeps repeating, what feels stuck, and what you want to be different.
-          In our work, we make room for honesty, curiosity, and the real complexity of your relationships and inner life.
-        </p>
-
-        <div class="steps">
-          <div class="step reveal">
-            <div class="step-n">1</div>
-            <div class="step-b">
-              <h3 class="step-h">Understand patterns</h3>
-              <p class="step-p">We explore how early experiences, fears, and unconscious motivations may shape what you feel and do today.</p>
-            </div>
-          </div>
-
-          <div class="step reveal">
-            <div class="step-n">2</div>
-            <div class="step-b">
-              <h3 class="step-h">Build compassion</h3>
-              <p class="step-p">We foster compassion for your struggles and strengthen your ability to stay with yourself in difficult moments.</p>
-            </div>
-          </div>
-
-          <div class="step reveal">
-            <div class="step-n">3</div>
-            <div class="step-b">
-              <h3 class="step-h">Create real change</h3>
-              <p class="step-p">You learn practical skills and develop motivation to create the life and relationships you want.</p>
-            </div>
-          </div>
-        </div>
-
-        <p class="small muted mt-20">
-          You can expect me to be warm and compassionate as well as direct and straightforwardly honest.
-          We aim to build a trusting relationship where you can be your authentic self.
-        </p>
-      </div>
-
-      <div class="quote-card reveal">
-        <p class="quote">
-          “The most important factor in predicting successful therapy is the relationship between you and your therapist.”
-        </p>
-        <div class="quote-meta">
-          <div class="avatar">
-            <img src="erica-sanborn-lindgren-portrait.webp" alt="Erica Sanborn Lindgren" loading="lazy" />
-          </div>
-          <div>
-            <p class="quote-name">Erica Sanborn Lindgren, PhD</p>
-            <p class="small muted">Psychoanalytic • Relational • Collaborative</p>
-          </div>
-        </div>
-
-        <a class="btn btn-primary btn-full" href="#contact">See if we’re a good fit</a>
-      </div>
-    </div>
-  </section>
-
-  <section class="section" id="specialties">
-    <div class="container">
-      <div class="section-head reveal">
-        <h2 class="section-title">Specialties & Expertise</h2>
-        <p class="section-lead">
-          I specialize in Anxiety, Depression, and Relationship Issues, and work with adults and couples.
-        </p>
-      </div>
-
-      <div class="cards">
-        <article class="card reveal">
-          <h3 class="card-h">Top Specialties</h3>
-          <p class="card-p">
-            Anxiety<br>
-            Depression<br>
-            Relationship Issues
-          </p>
-          <p class="card-mini">Primary focus areas</p>
-        </article>
-
-        <article class="card reveal">
-          <h3 class="card-h">Common Concerns</h3>
-          <p class="card-p">
-            Stress • Sleep or Insomnia • Self Esteem • Life Transitions • Trauma and PTSD • Grief
-          </p>
-          <p class="card-mini">Often addressed in therapy</p>
-        </article>
-
-        <article class="card reveal">
-          <h3 class="card-h">Identity & Community</h3>
-          <p class="card-p">
-            LGBTQ+ • Transgender • Women’s Issues • Peer Relationships • Family Conflict
-          </p>
-          <p class="card-mini">Affirming care</p>
-        </article>
-      </div>
-
-      <div class="chips reveal" aria-label="Additional areas of expertise">
-        <span class="chip">Bipolar Disorder</span>
-        <span class="chip">Coping Skills</span>
-        <span class="chip">Eating Disorders</span>
-        <span class="chip">Family Conflict</span>
-        <span class="chip">Grief</span>
-        <span class="chip">Infertility</span>
-        <span class="chip">LGBTQ+</span>
-        <span class="chip">Life Transitions</span>
-        <span class="chip">Mood Disorders</span>
-        <span class="chip">Narcissistic Personality (NPD)</span>
-        <span class="chip">Peer Relationships</span>
-        <span class="chip">Self Esteem</span>
-        <span class="chip">Sexual Abuse</span>
-        <span class="chip">Sleep or Insomnia</span>
-        <span class="chip">Stress</span>
-        <span class="chip">Transgender</span>
-        <span class="chip">Trauma and PTSD</span>
-        <span class="chip">Women’s Issues</span>
-      </div>
-
-      <p class="small muted center mt-20">
-        Client focus: Adults • Individuals & Couples
-      </p>
-    </div>
-  </section>
-
-  <section class="section section-alt" id="fees">
-    <div class="container split">
-      <div class="reveal">
-        <h2 class="section-title">Fees, Payment & Insurance</h2>
-        <p class="section-lead">
-          Clear, transparent information so you can decide what works for you.
-        </p>
-
-        <div class="pricing">
-          <div class="pricebox reveal">
-            <div class="price-content">
-              <h3 class="price-h">Free phone consultation</h3>
-              <p class="price-p">15 minutes to discuss fit and next steps.</p>
-            </div>
-            <div class="price-tag">Free</div>
-          </div>
-
-          <div class="pricebox reveal">
-            <div class="price-content">
-              <h3 class="price-h">Individual sessions</h3>
-              <p class="price-p">Standard session fee.</p>
-            </div>
-            <div class="price-tag">$250</div>
-          </div>
-
-          <div class="pricebox reveal">
-            <div class="price-content">
-              <h3 class="price-h">Sliding scale</h3>
-              <p class="price-p">Apply if you may be eligible.</p>
-            </div>
-            <div class="price-tag">Ask</div>
-          </div>
-        </div>
-
-        <div class="notice reveal">
-          <h3 class="notice-h">Insurance</h3>
-          <p class="notice-p">
-            Out of Network. If you have out-of-network benefits, you can request documentation to submit to your insurance provider.
-            Please check your plan details and verify coverage.
-          </p>
-        </div>
-
-        <div class="notice reveal">
-          <h3 class="notice-h">Payment methods</h3>
-          <p class="notice-p">
-            ACH bank transfer, American Express, Cash, Check, Discover, Health Savings Account, Mastercard, Visa.
-          </p>
-        </div>
-      </div>
-
-      <div class="form reveal" aria-label="Quick request">
-        <h3 class="form-title">Request a consultation</h3>
-        <p class="small muted" style="margin-bottom:18px;">
-          Send a brief note and I’ll follow up to schedule your free 15-minute phone consultation.
-        </p>
-
-        <form id="contactForm" action="https://formspree.io/f/YOUR_FORM_ID" method="POST" novalidate>
-          <label class="field">
-            <span class="label">Full Name</span>
-            <input class="input" type="text" name="name" required />
-            <span class="error" aria-live="polite"></span>
-          </label>
-
-          <label class="field">
-            <span class="label">Email</span>
-            <input class="input" type="email" name="email" required />
-            <span class="error" aria-live="polite"></span>
-          </label>
-
-          <label class="field">
-            <span class="label">Phone (optional)</span>
-            <input class="input" type="tel" name="phone" />
-            <span class="error" aria-live="polite"></span>
-          </label>
-
-          <label class="field">
-            <span class="label">What would you like help with?</span>
-            <textarea class="input textarea" name="message" placeholder="A few lines is enough." required></textarea>
-            <span class="error" aria-live="polite"></span>
-          </label>
-
-          <button class="btn btn-primary btn-full" type="submit">Send request</button>
-
-          <p class="small muted mt-20" style="margin-bottom:0;">
-            Prefer to call? <a href="tel:+14243178124"><strong>(424) 317-8124</strong></a>
-          </p>
-        </form>
-      </div>
-    </div>
-  </section>
-
-  <section class="section section-alt" id="faq">
-    <div class="container">
-      <div class="section-head reveal">
-        <h2 class="section-title">Common Questions</h2>
-        <p class="section-lead">A few practical details before we begin.</p>
-      </div>
-
-      <div class="accordion reveal" data-accordion>
-        <button class="acc-item" aria-expanded="false">
-          <span class="acc-q">Do you offer online sessions?</span>
-          <span class="acc-ic" aria-hidden="true"></span>
-        </button>
-        <div class="acc-a" hidden>
-          <p>Yes. Sessions are available both in-person in Santa Monica and online for clients who prefer remote therapy.</p>
-        </div>
-
-        <button class="acc-item" aria-expanded="false">
-          <span class="acc-q">Do you take insurance?</span>
-          <span class="acc-ic" aria-hidden="true"></span>
-        </button>
-        <div class="acc-a" hidden>
-          <p>I am an out-of-network provider. You can check your plan’s out-of-network benefits and verify coverage directly with your insurer.</p>
-        </div>
-
-        <button class="acc-item" aria-expanded="false">
-          <span class="acc-q">What is your approach?</span>
-          <span class="acc-ic" aria-hidden="true"></span>
-        </button>
-        <div class="acc-a" hidden>
-          <p>I use a psychoanalytic and collaborative relational approach, helping you explore how early experiences, fears, and motivations may impact your life today.</p>
-        </div>
-
-        <button class="acc-item" aria-expanded="false">
-          <span class="acc-q">How do I know if we are a good fit?</span>
-          <span class="acc-ic" aria-hidden="true"></span>
-        </button>
-        <div class="acc-a" hidden>
-          <p>Finding the right therapist can be challenging. A free 15-minute phone consultation is a simple way to see if we may work well together.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section class="section" id="contact">
-    <div class="container split">
-      <div class="reveal">
-        <h2 class="section-title">Location & Contact</h2>
-        <p class="section-lead">
-          Call or message to schedule your free 15-minute consultation.
-        </p>
-
-        <div class="contact-block">
-          <div class="contact-line reveal">
-            <span class="cicon" aria-hidden="true">📍</span>
-            <div>
-              <p class="ck">Office</p>
-              <p class="cv">270 26th Street, Suite 202<br>Santa Monica, CA 90402</p>
-            </div>
-          </div>
-
-          <div class="contact-line reveal">
-            <span class="cicon" aria-hidden="true">☎</span>
-            <div>
-              <p class="ck">Phone</p>
-              <a class="cv" href="tel:+14243178124">(424) 317-8124</a>
-            </div>
-          </div>
-
-          <div class="contact-line reveal">
-            <span class="cicon" aria-hidden="true">⏱</span>
-            <div>
-              <p class="ck">Consultation</p>
-              <p class="cv">Free 15-minute phone call</p>
-            </div>
-          </div>
-        </div>
-
-        <div class="notice mt-20 reveal">
-          <h3 class="notice-h">Please note</h3>
-          <p class="notice-p">
-            This practice is not an emergency service. If you are in crisis, call or text <strong>988</strong>, call <strong>911</strong>, or go to the nearest emergency room.
-          </p>
-        </div>
-      </div>
-
-      <div class="map reveal" aria-label="Map">
-        <iframe
-          title="Map of 270 26th Street Suite 202 Santa Monica CA 90402"
-          src="https://www.google.com/maps?q=270%2026th%20Street%20Suite%20202%20Santa%20Monica%20CA%2090402&output=embed"
-          loading="lazy"
-          referrerpolicy="no-referrer-when-downgrade"
-          allowfullscreen>
-        </iframe>
-      </div>
-    </div>
-  </section>
-
-  <footer class="footer">
-    <div class="container footer-inner">
-      <div class="foot-left">
-        <p class="foot-brand">Erica Sanborn Lindgren, PhD</p>
-        <p class="small muted">
-          Psychologist • CA License PSY31500<br>
-          Santa Monica, CA • In-person & Online<br>
-          <a href="tel:+14243178124">(424) 317-8124</a>
-        </p>
-      </div>
-
-      <div class="foot-links">
-        <a class="foot-link" href="#about">About</a>
-        <a class="foot-link" href="#approach">Approach</a>
-        <a class="foot-link" href="#fees">Fees</a>
-        <a class="foot-link" href="#contact">Contact</a>
-      </div>
-
-      <div class="foot-legal">
-        <p class="small muted">© <span id="year"></span> Erica Sanborn Lindgren. All rights reserved.</p>
-      </div>
-    </div>
-  </footer>
-
-  <button class="to-top" id="toTop" aria-label="Scroll to top">
-    <span aria-hidden="true">↑</span>
-  </button>
-
-  <script src="script.js"></script>
-</body>
-</html>
+}
+
+/* Ribbon */
+.ribbon{
+  background: var(--card3);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--line);
+}
+.ribbon-inner{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap: 14px;
+  padding: 10px 0;
+  flex-wrap: wrap;
+}
+.badge{
+  display:inline-flex;
+  align-items:center;
+  gap:10px;
+  padding: 6px 10px;
+  border-radius: 999px;
+  background: #fff;
+  border: 1px solid var(--line);
+  font-weight: 600;
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: var(--text);
+}
+.ribbon-left{
+  display:flex;
+  align-items:center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+.ribbon-right{
+  display:flex;
+  align-items:center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+.toplink{
+  font-size: 13px;
+  color: var(--text);
+  font-weight: 500;
+}
+.dot{ opacity: 0.4; }
+
+/* Header */
+.header{
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background: rgba(253, 252, 251, 0.85);
+  backdrop-filter: blur(14px);
+  border-bottom: 1px solid var(--line);
+}
+.header-inner{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  padding: 16px 0;
+  gap: 18px;
+}
+.logo{
+  display:flex;
+  align-items:center;
+  gap: 12px;
+  min-width: 220px;
+}
+.logo-stack{
+  display:flex;
+  flex-direction: column;
+  line-height: 1.1;
+}
+.logo-text{
+  font-family: var(--serif);
+  font-weight: 600;
+  font-size: 20px;
+  color: var(--text);
+}
+.logo-sub{
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: var(--muted);
+  margin-top: 4px;
+}
+
+.nav{
+  display:flex;
+  align-items:center;
+  gap: 10px;
+  position: relative;
+}
+.nav-panel{
+  display:flex;
+  align-items:center;
+  gap: 18px;
+}
+.nav-link{
+  font-size: 14px;
+  color: var(--muted);
+  padding: 8px 12px;
+  border-radius: 8px;
+  transition: all 160ms ease;
+  font-weight: 500;
+}
+.nav-link:hover{
+  background: var(--soft);
+  color: var(--text);
+}
+.nav-cta{
+  background: var(--text);
+  color: #fff !important;
+  border: 1px solid var(--text);
+}
+.nav-cta:hover{
+  background: #4a575b;
+  color: #fff;
+}
+
+.nav-socials{
+  display:flex;
+  align-items:center;
+  gap: 8px;
+  margin-left: 6px;
+}
+
+/* Icon links */
+.icon-link{
+  width: 40px;
+  height: 40px;
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  border-radius: 999px;
+  border: 1px solid var(--line);
+  background: #fff;
+  transition: transform 160ms ease, background 160ms ease;
+}
+.icon-link:hover{
+  transform: translateY(-1px);
+  background: var(--soft);
+}
+.icon-link svg{
+  width: 18px;
+  height: 18px;
+  fill: var(--text);
+}
+
+/* Nav Toggle (Hamburger) Base */
+.nav-toggle{
+  display:none; /* Hidden on desktop */
+  width: 44px;
+  height: 44px;
+  border-radius: 14px;
+  border: 1px solid var(--line);
+  background: #fff;
+  cursor: pointer;
+  box-shadow: 0 10px 26px rgba(15,23,42,0.08);
+  align-items: center;
+  justify-content: center;
+  z-index: 60;
+  padding: 0;
+}
+.nav-toggle-lines{
+  width: 18px;
+  height: 2px;
+  background: var(--text);
+  border-radius: 999px;
+  display:block;
+  position: relative;
+  transition: all 0.3s ease;
+}
+.nav-toggle-lines::before,
+.nav-toggle-lines::after{
+  content:"";
+  position:absolute;
+  left:0;
+  width:100%;
+  height:2px;
+  background: var(--text);
+  border-radius: 999px;
+  transition: all 0.3s ease;
+}
+.nav-toggle-lines::before{ top: -6px; }
+.nav-toggle-lines::after{ top: 6px; }
+
+/* Hero */
+.hero{
+  position: relative;
+  padding: 80px 0 50px;
+  overflow: hidden; 
+}
+.hero-inner{
+  display:grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 40px;
+  align-items: center;
+}
+.kicker{
+  display:inline-flex;
+  align-items:center;
+  gap: 10px;
+  padding: 8px 16px;
+  border-radius: 999px;
+  background: rgba(255,255,255,0.8);
+  border: 1px solid var(--line);
+  color: var(--muted);
+  margin: 0 0 18px;
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-weight: 600;
+}
+.hero-title{
+  font-family: var(--serif);
+  font-weight: 500;
+  letter-spacing: -0.5px;
+  font-size: 52px;
+  line-height: 1.1;
+  margin: 0 0 18px;
+  color: var(--text);
+}
+.hero-lead{
+  margin: 0 0 24px;
+  line-height: 1.8;
+  color: var(--muted);
+  max-width: 54ch;
+  font-size: 17px;
+}
+.hero-actions{
+  display:flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-bottom: 24px;
+}
+.btn{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  gap: 10px;
+  border-radius: 8px;
+  padding: 14px 20px;
+  border: 1px solid var(--line);
+  background: #fff;
+  color: var(--text);
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 200ms ease;
+  font-size: 15px;
+}
+.btn:hover{
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+}
+.btn-primary{
+  background: var(--text);
+  border-color: var(--text);
+  color: #fff;
+  box-shadow: 0 10px 30px rgba(44,54,57,0.15);
+}
+.btn-primary:hover{
+  background: #3f4e4f;
+  border-color: #3f4e4f;
+}
+.btn-ghost{
+  background: transparent;
+  border: 1px solid var(--text);
+}
+.btn-full{ width: 100%; }
+
+.trust-row{
+  display:flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+.trust-pill{
+  display:flex;
+  align-items:center;
+  gap: 8px;
+  font-size: 13px;
+  color: var(--muted);
+  font-weight: 500;
+}
+.trust-icon{
+  color: var(--accent);
+  font-size: 16px;
+}
+
+/* Hero card */
+.hero-card{
+  border-radius: var(--radius2);
+  overflow:hidden;
+  border: 1px solid var(--line);
+  background: #fff;
+  box-shadow: var(--shadow);
+  position: relative;
+}
+.hero-image-wrap{
+  border-bottom: 1px solid var(--line);
+  background: #f0f0f0;
+}
+.hero-image{
+  width:100%;
+  height:100%;
+  object-fit: cover;
+  aspect-ratio: 4 / 3;
+}
+.hero-card-body{
+  padding: 24px;
+}
+.card-title{
+  margin: 0 0 8px;
+  font-size: 18px;
+  font-family: var(--serif);
+}
+.card-text{
+  margin: 0 0 0;
+  line-height: 1.7;
+  color: var(--muted);
+  font-size: 14px;
+}
+
+.hero-bg{
+  position:absolute;
+  left: 0;
+  right: 0;
+  top: -70px;
+  bottom: -90px;
+  pointer-events:none;
+  background:
+    radial-gradient(900px 360px at 16% 40%, rgba(124,148,115,0.10), transparent 60%),
+    radial-gradient(760px 320px at 88% 30%, rgba(207,185,151,0.12), transparent 62%),
+    linear-gradient(to bottom, rgba(253,252,251,0) 0%, rgba(253,252,251,0) 65%, rgba(253,252,251,1) 100%);
+  z-index: -1;
+}
+
+/* Sections */
+.section{
+  padding: 64px 0;
+}
+.section-alt{
+  background: transparent;
+  border-top: 0;
+  border-bottom: 0;
+}
+.section-head{
+  max-width: 760px;
+  margin: 0 auto 36px;
+  text-align: center;
+}
+.section-title{
+  font-family: var(--serif);
+  letter-spacing: -0.2px;
+  font-size: 38px;
+  margin: 0 0 14px;
+  color: var(--text);
+}
+.section-lead{
+  margin: 0;
+  color: var(--muted);
+  line-height: 1.75;
+  font-size: 17px;
+}
+
+/* Split layout */
+.split{
+  display:grid;
+  grid-template-columns: 1fr 0.8fr;
+  gap: 40px;
+  align-items: start;
+}
+
+/* Bio */
+.bio-head{
+  display:flex;
+  align-items:center;
+  gap: 16px;
+  margin: 0 0 24px;
+}
+.bio-avatar{
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 1px solid var(--line);
+  background: #f0f0f0;
+  box-shadow: 0 10px 28px rgba(0,0,0,0.06);
+  flex: 0 0 auto;
+}
+.bio-avatar img{
+  width:100%;
+  height:100%;
+  object-fit: cover;
+}
+.bio-kicker{
+  margin: 0 0 4px;
+  font-weight: 600;
+  font-size: 14px;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+.bio-sub{
+  margin: 0;
+  font-family: var(--serif);
+  font-size: 20px;
+  color: var(--text);
+}
+
+/* Gallery */
+.gallery{
+  display:grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  margin-top: 6px;
+}
+.gallery-tile{
+  border-radius: var(--radius2);
+  overflow:hidden;
+  border: 1px solid var(--line);
+  background: #fff;
+  min-height: 200px;
+}
+.gallery-tile img{
+  width:100%;
+  height:100%;
+  object-fit: cover;
+  transition: transform 500ms ease;
+}
+.gallery-tile:hover img{
+  transform: scale(1.03);
+}
+
+/* Bullets */
+.bullets{
+  margin-top: 24px;
+  display:grid;
+  gap: 16px;
+}
+.bullet{
+  display:flex;
+  gap: 16px;
+  padding: 18px;
+  border-radius: var(--radius);
+  background: #fff;
+  border: 1px solid var(--line);
+  box-shadow: 0 4px 10px rgba(0,0,0,0.03);
+}
+.bullet-dot{
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  margin-top: 0;
+  background: rgba(124, 148, 115, 0.15);
+  color: var(--accent);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size: 12px;
+  flex: 0 0 auto;
+}
+
+/* Info card */
+.info-card{
+  border-radius: var(--radius2);
+  background: #fff;
+  border: 1px solid var(--line);
+  padding: 24px;
+  box-shadow: var(--shadow);
+}
+.info-title{
+  margin: 0 0 16px;
+  font-size: 18px;
+  font-family: var(--serif);
+}
+.info-grid{
+  display:grid;
+  grid-template-columns: 1fr;
+  gap: 12px;
+  margin-bottom: 20px;
+}
+.info-item{
+  padding: 14px;
+  border-radius: 10px;
+  background: var(--bg);
+  border: 1px solid var(--line);
+  display:flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.info-k{
+  margin: 0;
+  font-size: 13px;
+  color: var(--muted);
+}
+.info-v{
+  margin: 0;
+  font-weight: 600;
+  font-size: 13px;
+  color: var(--text);
+  text-align: right;
+}
+
+/* Cards */
+.cards{
+  display:grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+.card{
+  border-radius: var(--radius2);
+  background: #fff;
+  border: 1px solid var(--line);
+  padding: 24px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.04);
+  transition: transform 160ms ease, border-color 160ms ease;
+  display: flex;
+  flex-direction: column;
+}
+.card:hover{
+  transform: translateY(-4px);
+  border-color: var(--accent);
+}
+.card-h{
+  margin: 0 0 10px;
+  font-size: 18px;
+  font-family: var(--serif);
+  color: var(--text);
+}
+.card-p{
+  margin: 0 0 16px;
+  line-height: 1.6;
+  color: var(--muted);
+  font-size: 14px;
+  flex-grow: 1;
+}
+.card-mini{
+  margin: 0;
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: var(--accent);
+  font-weight: 600;
+}
+
+/* Steps */
+.steps{
+  margin-top: 24px;
+  display:grid;
+  gap: 16px;
+}
+.step{
+  display:flex;
+  gap: 16px;
+  padding: 20px;
+  border-radius: var(--radius2);
+  background: #fff;
+  border: 1px solid var(--line);
+}
+.step-n{
+  width: 40px;
+  height: 40px;
+  border-radius: 10px;
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  background: var(--text);
+  color: #fff;
+  font-weight: 600;
+  font-family: var(--serif);
+  font-size: 18px;
+  flex: 0 0 auto;
+}
+.step-h{
+  margin: 0 0 6px;
+  font-size: 16px;
+  font-weight: 600;
+}
+.step-p{
+  margin: 0;
+  color: var(--muted);
+  line-height: 1.6;
+}
+
+/* Quote card */
+.quote-card{
+  border-radius: var(--radius2);
+  background: var(--accent2); /* Warm beige background */
+  background: linear-gradient(135deg, #e3dacd, #d4c5b0);
+  padding: 30px;
+  box-shadow: var(--shadow);
+  color: #3e3830;
+}
+.quote{
+  margin: 0 0 20px;
+  font-size: 19px;
+  line-height: 1.6;
+  font-family: var(--serif);
+  font-style: italic;
+}
+.quote-meta{
+  display:flex;
+  align-items:center;
+  gap: 12px;
+  margin-bottom: 20px;
+}
+.avatar{
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  overflow: hidden;
+  background: #fff;
+  border: 2px solid rgba(255,255,255,0.4);
+}
+.quote-name{
+  margin: 0;
+  font-weight: 700;
+  font-size: 15px;
+}
+
+/* Testimonials */
+.testimonials{
+  display:grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+.tcard{
+  border-radius: var(--radius2);
+  background: #fff;
+  border: 1px solid var(--line);
+  padding: 24px;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.04);
+}
+.ttext{
+  margin: 0 0 14px;
+  line-height: 1.7;
+  color: var(--text);
+  font-style: italic;
+  font-family: var(--serif);
+}
+.tmeta{
+  margin: 0;
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: var(--muted);
+}
+
+/* Pricing */
+.pricing{
+  margin-top: 24px;
+  display:grid;
+  gap: 16px;
+}
+.pricebox{
+  border-radius: var(--radius2);
+  background: #fff;
+  border: 1px solid var(--line);
+  padding: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+}
+.price-content{ flex: 1; }
+.price-h{
+  margin: 0 0 4px;
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--text);
+}
+.price-p{
+  margin: 0;
+  color: var(--muted);
+  font-size: 14px;
+}
+.price-tag{
+  background: var(--soft);
+  padding: 6px 12px;
+  border-radius: 8px;
+  font-weight: 600;
+  color: var(--text);
+  font-size: 14px;
+}
+
+/* Accordion */
+.accordion{
+  max-width: 800px;
+  margin: 0 auto;
+  display:grid;
+  gap: 12px;
+}
+.acc-item{
+  width: 100%;
+  text-align:left;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap: 12px;
+  padding: 18px 20px;
+  border-radius: var(--radius);
+  background: #fff;
+  border: 1px solid var(--line);
+  cursor: pointer;
+  font: inherit;
+  transition: background 160ms ease;
+}
+.acc-item:hover{
+  background: #fcfcfc;
+}
+.acc-q{
+  font-weight: 600;
+  color: var(--text);
+  font-size: 15px;
+}
+.acc-ic{
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: var(--soft);
+  position: relative;
+  flex: 0 0 auto;
+}
+.acc-ic::before,
+.acc-ic::after{
+  content:"";
+  position:absolute;
+  top:50%;
+  left:50%;
+  width: 10px;
+  height: 2px;
+  background: var(--text);
+  transform: translate(-50%,-50%);
+}
+.acc-ic::after{
+  width: 2px;
+  height: 10px;
+  transition: transform 200ms ease;
+}
+.acc-item[aria-expanded="true"] .acc-ic::after{
+  transform: translate(-50%,-50%) rotate(90deg);
+}
+.acc-a{
+  background: transparent;
+  padding: 10px 20px 20px;
+  line-height: 1.7;
+  color: var(--muted);
+  border-left: 2px solid var(--line);
+  margin-left: 20px;
+}
+
+/* Contact */
+.contact-block{
+  margin-top: 24px;
+  display:grid;
+  gap: 16px;
+}
+.contact-line{
+  display:flex;
+  gap: 16px;
+  align-items:center;
+  padding: 18px;
+  border-radius: var(--radius);
+  background: #fff;
+  border: 1px solid var(--line);
+}
+.cicon{
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  background: var(--soft);
+  color: var(--text);
+}
+.ck{
+  margin: 0 0 2px;
+  font-size: 11px;
+  text-transform: uppercase;
+  color: var(--muted);
+  letter-spacing: 0.5px;
+}
+.cv{
+  margin: 0;
+  font-weight: 600;
+  color: var(--text);
+  font-size: 15px;
+}
+.map{
+  margin-top: 20px;
+  border-radius: var(--radius2);
+  overflow:hidden;
+  border: 1px solid var(--line);
+  background: #eee;
+  box-shadow: var(--shadow);
+}
+.map iframe{
+  width:100%;
+  height: 280px;
+  border: 0;
+  display:block;
+  opacity: 0.9;
+}
+
+/* Form */
+.form{
+  border-radius: var(--radius2);
+  background: #fff;
+  border: 1px solid var(--line);
+  padding: 30px;
+  box-shadow: var(--shadow);
+}
+.form-title{
+  margin: 0 0 20px;
+  font-size: 20px;
+  font-family: var(--serif);
+}
+.field{
+  display:block;
+  margin-bottom: 16px;
+}
+.label{
+  display:block;
+  margin-bottom: 6px;
+  font-size: 13px;
+  color: var(--text);
+  font-weight: 500;
+}
+.input{
+  width: 100%;
+  border-radius: 8px;
+  padding: 14px 14px;
+  border: 1px solid #d1d5db;
+  background: #f9fafb;
+  color: var(--text);
+  outline: none;
+  font: inherit;
+  transition: all 160ms ease;
+}
+.input:focus{
+  border-color: var(--accent);
+  background: #fff;
+  box-shadow: 0 0 0 3px rgba(124, 148, 115, 0.15);
+}
+.textarea{
+  resize: vertical;
+  min-height: 140px;
+}
+
+/* Footer */
+.footer{
+  padding: 50px 0;
+  background: #f5f5f4;
+  border-top: 1px solid var(--line);
+}
+.footer-inner{
+  display:grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: start;
+  gap: 30px;
+}
+.foot-brand{
+  margin: 0 0 10px;
+  font-weight: 700;
+  font-family: var(--serif);
+  font-size: 18px;
+}
+.foot-legal{
+  text-align: right;
+}
+
+/* Back to Top Button */
+.to-top {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: var(--text);
+  color: #fff;
+  border: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(10px);
+  transition: all 300ms ease;
+  z-index: 90;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
+.to-top:hover {
+  background: var(--accent);
+  transform: translateY(-2px);
+}
+.to-top.show {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateY(0);
+}
+
+/* ========================================= */
+/* RESPONSIVE & MOBILE MENU LOGIC            */
+/* ========================================= */
+
+@media (max-width: 980px){
+  .hero-inner{ grid-template-columns: 1fr; text-align: center; }
+  .hero-lead{ margin-left: auto; margin-right: auto; }
+  .hero-actions{ justify-content: center; }
+  .trust-row{ justify-content: center; }
+  
+  .split{ grid-template-columns: 1fr; }
+  .cards{ grid-template-columns: 1fr 1fr; }
+  .testimonials{ grid-template-columns: 1fr; }
+  .footer-inner{ grid-template-columns: 1fr; text-align: center; }
+  
+  .foot-legal{ text-align: center; }
+  
+  .foot-links{ justify-content: center; }
+}
+
+@media (max-width: 760px){
+  /* Show the toggle button */
+  .nav-toggle{
+    display:flex;
+  }
+
+  /* Hide the panel by default, style it as a dropdown */
+  .nav-panel{
+    display:none; /* Hidden */
+    flex-direction: column;
+    align-items: stretch;
+    gap: 8px;
+    
+    position: absolute;
+    right: 0;
+    top: 100%; /* Directly below header */
+    margin-top: 10px;
+    width: min(300px, calc(100vw - 32px));
+    
+    background: #fff;
+    border: 1px solid var(--line);
+    padding: 16px;
+    border-radius: 12px;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+    z-index: 100;
+  }
+  
+  /* When 'open' class is added via JS */
+  .nav-panel.open{
+    display:flex;
+    animation: slideDown 0.2s ease-out forwards;
+  }
+
+  /* Stack styling */
+  .cards{ grid-template-columns: 1fr; }
+  .gallery{ grid-template-columns: 1fr; }
+  .to-top { bottom: 16px; right: 16px; }
+
+  /* Hamburger Animation Logic 
+     Check if aria-expanded="true" on the button 
+  */
+  .nav-toggle[aria-expanded="true"] .nav-toggle-lines {
+    background: transparent; /* Hide middle line */
+  }
+  .nav-toggle[aria-expanded="true"] .nav-toggle-lines::before {
+    top: 0;
+    transform: rotate(45deg);
+  }
+  .nav-toggle[aria-expanded="true"] .nav-toggle-lines::after {
+    top: 0;
+    transform: rotate(-45deg);
+  }
+}
+
+/* Simple keyframe for menu entrance */
+@keyframes slideDown {
+  from { opacity: 0; transform: translateY(-10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
