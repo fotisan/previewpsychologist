@@ -1,1061 +1,675 @@
-:root{
-  --bg: #fdfcfb;
-  --card: rgba(255,255,255,0.85);
-  --card2: #ffffff;
-  --card3: rgba(255,255,255,0.65);
+<!doctype html>
+<html lang="en-US">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="robots" content="noindex, nofollow">
 
-  --text: #2c3639;
-  --muted: #5f6c70;
+  <meta name="description" content="Erica Sanborn Lindgren (PhD) - Clinical Psychologist in Santa Monica. Specialist in anxiety, depression, and relationships." />
+  <title>Erica Sanborn Lindgren | Psychologist Santa Monica</title>
 
-  --soft: rgba(63, 78, 79, 0.05);
-  --line: rgba(63, 78, 79, 0.12);
+  <meta property="og:title" content="Erica Sanborn Lindgren | Clinical Psychologist" />
+  <meta property="og:description" content="Relationship and Anxiety Specialist in Santa Monica, CA." />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="erica-sanborn-hero.webp" />
 
-  --accent: #7c9473;   /* Sage Green */
-  --accent2: #cfb997;  /* Warm Sand */
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500&display=swap" rel="stylesheet">
 
-  --shadow: 0 18px 60px rgba(44, 54, 57, 0.08);
-  --radius: 12px;
-  --radius2: 16px;
-  --max: 1120px;
+  <link rel="stylesheet" href="styles.css" />
 
-  --font: "Inter", system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
-  --serif: "Playfair Display", Georgia, serif;
-}
-
-*{ box-sizing: border-box; }
-html{ scroll-behavior: smooth; }
-body{
-  margin:0;
-  font-family: var(--font);
-  background:
-    radial-gradient(1100px 700px at 18% -10%, rgba(124, 148, 115, 0.15), transparent 55%),
-    radial-gradient(900px 600px at 92% 5%, rgba(207, 185, 151, 0.15), transparent 52%),
-    var(--bg);
-  color: var(--text);
-}
-
-img{ max-width:100%; display:block; }
-a{ color: inherit; text-decoration: none; }
-.container{
-  width: min(var(--max), calc(100% - 40px));
-  margin: 0 auto;
-}
-
-.sr-only{
-  position:absolute;
-  width:1px;height:1px;
-  padding:0;margin:-1px;
-  overflow:hidden;clip:rect(0,0,0,0);
-  border:0;
-}
-
-.muted{ color: var(--muted); }
-.small{ font-size: 13px; line-height: 1.5; }
-.center{ text-align: center; }
-.mt-20{ margin-top: 20px; }
-
-/* Scroll reveal */
-.reveal{
-  opacity: 0;
-  transform: translateY(18px);
-  transition: opacity 700ms ease, transform 700ms cubic-bezier(.2,.9,.2,1);
-  will-change: opacity, transform;
-}
-.reveal.in-view{
-  opacity: 1;
-  transform: translateY(0);
-}
-@media (prefers-reduced-motion: reduce){
-  html{ scroll-behavior: auto; }
-  .reveal{
-    opacity: 1;
-    transform: none;
-    transition: none;
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Physician",
+    "name": "Erica Sanborn Lindgren",
+    "jobTitle": "Clinical Psychologist",
+    "medicalSpecialty": "Psychology",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "270 26th Street, Suite 202",
+      "addressLocality": "Santa Monica",
+      "addressRegion": "CA",
+      "postalCode": "90402",
+      "addressCountry": "US"
+    },
+    "telephone": "+14243178124",
+    "url": "https://www.ericasanbornlindgren.com"
   }
-}
+  </script>
+</head>
 
-/* Ribbon */
-.ribbon{
-  background: var(--card3);
-  backdrop-filter: blur(10px);
-  border-bottom: 1px solid var(--line);
-}
-.ribbon-inner{
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  gap: 14px;
-  padding: 10px 0;
-  flex-wrap: wrap;
-}
-.badge{
-  display:inline-flex;
-  align-items:center;
-  gap:10px;
-  padding: 6px 10px;
-  border-radius: 999px;
-  background: #fff;
-  border: 1px solid var(--line);
-  font-weight: 600;
-  font-size: 12px;
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
-  color: var(--text);
-}
-.ribbon-left{
-  display:flex;
-  align-items:center;
-  gap: 12px;
-  flex-wrap: wrap;
-}
-.ribbon-right{
-  display:flex;
-  align-items:center;
-  gap: 10px;
-  flex-wrap: wrap;
-}
-.toplink{
-  font-size: 13px;
-  color: var(--text);
-  font-weight: 500;
-}
-.dot{ opacity: 0.4; }
+<body>
+  <header class="header" id="top">
+    <div class="container header-inner">
+      <a class="logo" href="#top" aria-label="Home">
+        <span class="logo-stack">
+          <span class="logo-text">Erica Sanborn Lindgren</span>
+          <span class="logo-sub">Psychologist | PhD #31500</span>
+        </span>
+      </a>
 
-/* Header */
-.header{
-  position: sticky;
-  top: 0;
-  z-index: 50;
-  background: rgba(253, 252, 251, 0.85);
-  backdrop-filter: blur(14px);
-  border-bottom: 1px solid var(--line);
-}
-.header-inner{
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  padding: 16px 0;
-  gap: 18px;
-}
-.logo{
-  display:flex;
-  align-items:center;
-  gap: 12px;
-  min-width: 220px;
-}
-.logo-stack{
-  display:flex;
-  flex-direction: column;
-  line-height: 1.1;
-}
-.logo-text{
-  font-family: var(--serif);
-  font-weight: 600;
-  font-size: 20px;
-  color: var(--text);
-}
-.logo-sub{
-  font-size: 11px;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-  color: var(--muted);
-  margin-top: 4px;
-}
+      <nav class="nav" aria-label="Primary navigation">
+        <button class="nav-toggle" id="navToggle" aria-expanded="false" aria-controls="navPanel">
+          <span class="nav-toggle-lines" aria-hidden="true"></span>
+          <span class="sr-only">Open menu</span>
+        </button>
 
-.nav{
-  display:flex;
-  align-items:center;
-  gap: 10px;
-  position: relative;
-}
-.nav-panel{
-  display:flex;
-  align-items:center;
-  gap: 18px;
-}
-.nav-link{
-  font-size: 14px;
-  color: var(--muted);
-  padding: 8px 12px;
-  border-radius: 8px;
-  transition: all 160ms ease;
-  font-weight: 500;
-}
-.nav-link:hover{
-  background: var(--soft);
-  color: var(--text);
-}
-.nav-cta{
-  background: var(--text);
-  color: #fff !important;
-  border: 1px solid var(--text);
-}
-.nav-cta:hover{
-  background: #4a575b;
-  color: #fff;
-}
+        <div class="nav-panel" id="navPanel">
+          <a class="nav-link" href="#services">Services</a>
+          <a class="nav-link" href="#approach">Approach</a>
+          <a class="nav-link" href="#about">About Me</a>
+          <a class="nav-link" href="#faq">FAQ</a>
+          <a class="nav-link nav-cta" href="#contact">Free Consultation</a>
 
-.nav-socials{
-  display:flex;
-  align-items:center;
-  gap: 8px;
-  margin-left: 6px;
-}
+          <div class="nav-socials" aria-label="Social media">
+            <a class="icon-link" href="#" target="_blank" rel="noopener" aria-label="LinkedIn">
+              <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                <path d="M6.5 6.8A1.8 1.8 0 1 1 6.5 3a1.8 1.8 0 0 1 0 3.8ZM5 21V9h3v12H5Z"/>
+                <path d="M10 21V9h2.9v1.6h.1c.6-1.1 1.8-2 3.7-2 3 0 4.3 2 4.3 5.3V21h-3v-6c0-1.7-.4-3-2.1-3-1.6 0-2.5 1.1-2.5 3V21h-3Z"/>
+              </svg>
+            </a>
+          </div>
+        </div>
+      </nav>
+    </div>
+  </header>
 
-/* Icon links */
-.icon-link{
-  width: 40px;
-  height: 40px;
-  display:inline-flex;
-  align-items:center;
-  justify-content:center;
-  border-radius: 999px;
-  border: 1px solid var(--line);
-  background: #fff;
-  transition: transform 160ms ease, background 160ms ease;
-}
-.icon-link:hover{
-  transform: translateY(-1px);
-  background: var(--soft);
-}
-.icon-link svg{
-  width: 18px;
-  height: 18px;
-  fill: var(--text);
-}
+  <section class="hero">
+    <div class="container hero-inner">
+      <div class="hero-copy reveal">
+        <p class="kicker">Anxiety, Depression & Relationship Issues</p>
+        <h1 class="hero-title">Deepening Relationships.<br>Elevating Lives.</h1>
+        <p class="hero-lead">
+          If you’re feeling overwhelmed, dissatisfied, or disengaged, therapy can help you understand why. I offer a safe space in Santa Monica to understand your present and create the life you desire.
+        </p>
 
-/* Nav Toggle (Hamburger) Base */
-.nav-toggle{
-  display:none; /* Hidden on desktop */
-  width: 44px;
-  height: 44px;
-  border-radius: 14px;
-  border: 1px solid var(--line);
-  background: #fff;
-  cursor: pointer;
-  box-shadow: 0 10px 26px rgba(15,23,42,0.08);
-  align-items: center;
-  justify-content: center;
-  z-index: 60;
-  padding: 0;
-}
-.nav-toggle-lines{
-  width: 18px;
-  height: 2px;
-  background: var(--text);
-  border-radius: 999px;
-  display:block;
-  position: relative;
-  transition: all 0.3s ease;
-}
-.nav-toggle-lines::before,
-.nav-toggle-lines::after{
-  content:"";
-  position:absolute;
-  left:0;
-  width:100%;
-  height:2px;
-  background: var(--text);
-  border-radius: 999px;
-  transition: all 0.3s ease;
-}
-.nav-toggle-lines::before{ top: -6px; }
-.nav-toggle-lines::after{ top: 6px; }
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="#contact">Free 15-min Consultation</a>
+          <a class="btn btn-ghost" href="#services">Explore Services</a>
+        </div>
 
-/* Hero */
-.hero{
-  position: relative;
-  padding: 80px 0 50px;
-  overflow: hidden; 
-}
-.hero-inner{
-  display:grid;
-  grid-template-columns: 1.1fr 0.9fr;
-  gap: 40px;
-  align-items: center;
-}
-.kicker{
-  display:inline-flex;
-  align-items:center;
-  gap: 10px;
-  padding: 8px 16px;
-  border-radius: 999px;
-  background: rgba(255,255,255,0.8);
-  border: 1px solid var(--line);
-  color: var(--muted);
-  margin: 0 0 18px;
-  font-size: 12px;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-  font-weight: 600;
-}
-.hero-title{
-  font-family: var(--serif);
-  font-weight: 500;
-  letter-spacing: -0.5px;
-  font-size: 52px;
-  line-height: 1.1;
-  margin: 0 0 18px;
-  color: var(--text);
-}
-.hero-lead{
-  margin: 0 0 24px;
-  line-height: 1.8;
-  color: var(--muted);
-  max-width: 54ch;
-  font-size: 17px;
-}
-.hero-actions{
-  display:flex;
-  gap: 12px;
-  flex-wrap: wrap;
-  margin-bottom: 24px;
-}
-.btn{
-  display:inline-flex;
-  align-items:center;
-  justify-content:center;
-  gap: 10px;
-  border-radius: 8px;
-  padding: 14px 20px;
-  border: 1px solid var(--line);
-  background: #fff;
-  color: var(--text);
-  font-weight: 600;
-  cursor: pointer;
-  transition: all 200ms ease;
-  font-size: 15px;
-}
-.btn:hover{
-  transform: translateY(-1px);
-  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
-}
-.btn-primary{
-  background: var(--text);
-  border-color: var(--text);
-  color: #fff;
-  box-shadow: 0 10px 30px rgba(44,54,57,0.15);
-}
-.btn-primary:hover{
-  background: #3f4e4f;
-  border-color: #3f4e4f;
-}
-.btn-ghost{
-  background: transparent;
-  border: 1px solid var(--text);
-}
-.btn-full{ width: 100%; }
+        <div class="trust-row" aria-label="Credentials">
+          <div class="trust-pill">
+            <span class="trust-icon" aria-hidden="true">✦</span>
+            <span>PhD Clinical Psychologist</span>
+          </div>
+          <div class="trust-pill">
+            <span class="trust-icon" aria-hidden="true">✦</span>
+            <span>Santa Monica & Online</span>
+          </div>
+          <div class="trust-pill">
+            <span class="trust-icon" aria-hidden="true">✦</span>
+            <span>Psychoanalytic</span>
+          </div>
+        </div>
+      </div>
 
-.trust-row{
-  display:flex;
-  gap: 12px;
-  flex-wrap: wrap;
-}
-.trust-pill{
-  display:flex;
-  align-items:center;
-  gap: 8px;
-  font-size: 13px;
-  color: var(--muted);
-  font-weight: 500;
-}
-.trust-icon{
-  color: var(--accent);
-  font-size: 16px;
-}
+      <div class="hero-card reveal">
+        <div class="hero-image-wrap">
+          <img
+            class="hero-image"
+            src="erica-sanborn-hero.webp"
+            alt="Erica Sanborn Lindgren office setting"
+            loading="eager"
+          />
+        </div>
 
-/* Hero card */
-.hero-card{
-  border-radius: var(--radius2);
-  overflow:hidden;
-  border: 1px solid var(--line);
-  background: #fff;
-  box-shadow: var(--shadow);
-  position: relative;
-}
-.hero-image-wrap{
-  border-bottom: 1px solid var(--line);
-  background: #f0f0f0;
-}
-.hero-image{
-  width:100%;
-  height:100%;
-  object-fit: cover;
-  aspect-ratio: 4 / 3;
-}
-.hero-card-body{
-  padding: 24px;
-}
-.card-title{
-  margin: 0 0 8px;
-  font-size: 18px;
-  font-family: var(--serif);
-}
-.card-text{
-  margin: 0 0 0;
-  line-height: 1.7;
-  color: var(--muted);
-  font-size: 14px;
-}
+        <div class="hero-card-body">
+          <h2 class="card-title">Therapy. Growth. Authenticity.</h2>
+          <p class="card-text">
+            My goal is to provide a safe place where you can be your authentic and genuine self, building a trusting relationship to help you increase your capacity for intimacy.
+          </p>
+        </div>
+      </div>
+    </div>
 
-.hero-bg{
-  position:absolute;
-  left: 0;
-  right: 0;
-  top: -70px;
-  bottom: -90px;
-  pointer-events:none;
-  background:
-    radial-gradient(900px 360px at 16% 40%, rgba(124,148,115,0.10), transparent 60%),
-    radial-gradient(760px 320px at 88% 30%, rgba(207,185,151,0.12), transparent 62%),
-    linear-gradient(to bottom, rgba(253,252,251,0) 0%, rgba(253,252,251,0) 65%, rgba(253,252,251,1) 100%);
-  z-index: -1;
-}
+    <div class="hero-bg" aria-hidden="true"></div>
+  </section>
 
-/* Sections */
-.section{
-  padding: 64px 0;
-}
-.section-alt{
-  background: transparent;
-  border-top: 0;
-  border-bottom: 0;
-}
-.section-head{
-  max-width: 760px;
-  margin: 0 auto 36px;
-  text-align: center;
-}
-.section-title{
-  font-family: var(--serif);
-  letter-spacing: -0.2px;
-  font-size: 38px;
-  margin: 0 0 14px;
-  color: var(--text);
-}
-.section-lead{
-  margin: 0;
-  color: var(--muted);
-  line-height: 1.75;
-  font-size: 17px;
-}
+  <section class="ribbon" aria-label="Quick contact">
+    <div class="container ribbon-inner reveal">
+      <div class="ribbon-left">
+        <span class="badge">Accepting New Clients</span>
+        <span class="muted small">In-person & Virtual Sessions Available</span>
+      </div>
 
-/* Split layout */
-.split{
-  display:grid;
-  grid-template-columns: 1fr 0.8fr;
-  gap: 40px;
-  align-items: start;
-}
+      <div class="ribbon-right">
+        <a class="toplink" href="tel:4243178124">(424) 317-8124</a>
+        <span class="dot">•</span>
+        <a class="toplink" href="mailto:contact@ericasanborn.com">Email Me</a>
+      </div>
+    </div>
+  </section>
 
-/* Bio */
-.bio-head{
-  display:flex;
-  align-items:center;
-  gap: 16px;
-  margin: 0 0 24px;
-}
-.bio-avatar{
-  width: 80px;
-  height: 80px;
-  border-radius: 50%;
-  overflow: hidden;
-  border: 1px solid var(--line);
-  background: #f0f0f0;
-  box-shadow: 0 10px 28px rgba(0,0,0,0.06);
-  flex: 0 0 auto;
-}
-.bio-avatar img{
-  width:100%;
-  height:100%;
-  object-fit: cover;
-}
-.bio-kicker{
-  margin: 0 0 4px;
-  font-weight: 600;
-  font-size: 14px;
-  letter-spacing: 0.5px;
-  text-transform: uppercase;
-  color: var(--accent);
-}
-.bio-sub{
-  margin: 0;
-  font-family: var(--serif);
-  font-size: 20px;
-  color: var(--text);
-}
+  <section class="section" id="about">
+    <div class="container split">
+      <div class="reveal">
+        <div class="bio-head" aria-label="Therapist profile">
+          <div class="bio-avatar">
+            <img
+              src="erica-sanborn-bio.webp"
+              alt="Portrait of Erica Sanborn Lindgren"
+              loading="lazy"
+            />
+          </div>
+          <div>
+            <p class="bio-kicker">Erica Sanborn Lindgren</p>
+            <p class="bio-sub">Psychologist, PhD</p>
+          </div>
+        </div>
 
-/* Gallery */
-.gallery{
-  display:grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 16px;
-  margin-top: 6px;
-}
-.gallery-tile{
-  border-radius: var(--radius2);
-  overflow:hidden;
-  border: 1px solid var(--line);
-  background: #fff;
-  min-height: 200px;
-}
-.gallery-tile img{
-  width:100%;
-  height:100%;
-  object-fit: cover;
-  transition: transform 500ms ease;
-}
-.gallery-tile:hover img{
-  transform: scale(1.03);
-}
+        <h2 class="section-title">A collaborative, relational approach to help you thrive</h2>
+        <p class="section-lead">
+          I use a psychoanalytic and collaborative relational approach to engage your curiosity about how early experiences, unconscious motivations, thoughts, or fears may contribute to your life today. 
+          Together, we will work to foster compassion for your struggles and motivation to create the life you desire.
+        </p>
+        <p class="section-lead" style="margin-top:20px;">
+          You can expect me to be warm and compassionate as well as direct and straightforwardly honest. Research has shown that the most important factor in predicting successful therapy is the relationship between you and your therapist.
+        </p>
 
-/* Bullets */
-.bullets{
-  margin-top: 24px;
-  display:grid;
-  gap: 16px;
-}
-.bullet{
-  display:flex;
-  gap: 16px;
-  padding: 18px;
-  border-radius: var(--radius);
-  background: #fff;
-  border: 1px solid var(--line);
-  box-shadow: 0 4px 10px rgba(0,0,0,0.03);
-}
-.bullet-dot{
-  width: 24px;
-  height: 24px;
-  border-radius: 50%;
-  margin-top: 0;
-  background: rgba(124, 148, 115, 0.15);
-  color: var(--accent);
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  font-size: 12px;
-  flex: 0 0 auto;
-}
+        <div class="bullets">
+          <div class="bullet">
+            <div class="bullet-dot">01</div>
+            <p><strong>Warm & Direct.</strong> I provide a safe place for your authentic self, balancing compassion with straightforward honesty.</p>
+          </div>
+          <div class="bullet">
+            <div class="bullet-dot">02</div>
+            <p><strong>Depth Oriented.</strong> We explore unconscious motivations and early experiences to improve your relationship with yourself and others.</p>
+          </div>
+          <div class="bullet">
+            <div class="bullet-dot">03</div>
+            <p><strong>Experienced Care.</strong> With over 11 years in practice and training from the Wright Institute Los Angeles, I bring deep expertise.</p>
+          </div>
+        </div>
+      </div>
 
-/* Info card */
-.info-card{
-  border-radius: var(--radius2);
-  background: #fff;
-  border: 1px solid var(--line);
-  padding: 24px;
-  box-shadow: var(--shadow);
-}
-.info-title{
-  margin: 0 0 16px;
-  font-size: 18px;
-  font-family: var(--serif);
-}
-.info-grid{
-  display:grid;
-  grid-template-columns: 1fr;
-  gap: 12px;
-  margin-bottom: 20px;
-}
-.info-item{
-  padding: 14px;
-  border-radius: 10px;
-  background: var(--bg);
-  border: 1px solid var(--line);
-  display:flex;
-  justify-content: space-between;
-  align-items: center;
-}
-.info-k{
-  margin: 0;
-  font-size: 13px;
-  color: var(--muted);
-}
-.info-v{
-  margin: 0;
-  font-weight: 600;
-  font-size: 13px;
-  color: var(--text);
-  text-align: right;
-}
+      <div class="info-card reveal">
+        <h3 class="info-title">Practice Details</h3>
+        <div class="info-grid">
+          <div class="info-item">
+            <p class="info-k">Location</p>
+            <p class="info-v">270 26th Street<br>Santa Monica, CA 90402</p>
+          </div>
+          <div class="info-item">
+            <p class="info-k">Session Type</p>
+            <p class="info-v">In-Person & Online</p>
+          </div>
+          <div class="info-item">
+            <p class="info-k">Education</p>
+            <p class="info-v">PhD, California School<br>of Prof. Psychology</p>
+          </div>
+          <div class="info-item">
+            <p class="info-k">License</p>
+            <p class="info-v">CA PSY #31500</p>
+          </div>
+        </div>
 
-/* Cards */
-.cards{
-  display:grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 20px;
-}
-.card{
-  border-radius: var(--radius2);
-  background: #fff;
-  border: 1px solid var(--line);
-  padding: 24px;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.04);
-  transition: transform 160ms ease, border-color 160ms ease;
-  display: flex;
-  flex-direction: column;
-}
-.card:hover{
-  transform: translateY(-4px);
-  border-color: var(--accent);
-}
-.card-h{
-  margin: 0 0 10px;
-  font-size: 18px;
-  font-family: var(--serif);
-  color: var(--text);
-}
-.card-p{
-  margin: 0 0 16px;
-  line-height: 1.6;
-  color: var(--muted);
-  font-size: 14px;
-  flex-grow: 1;
-}
-.card-mini{
-  margin: 0;
-  font-size: 12px;
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
-  color: var(--accent);
-  font-weight: 600;
-}
+        <a class="btn btn-primary btn-full" href="#contact">Get in Touch</a>
+      </div>
+    </div>
+  </section>
 
-/* Steps */
-.steps{
-  margin-top: 24px;
-  display:grid;
-  gap: 16px;
-}
-.step{
-  display:flex;
-  gap: 16px;
-  padding: 20px;
-  border-radius: var(--radius2);
-  background: #fff;
-  border: 1px solid var(--line);
-}
-.step-n{
-  width: 40px;
-  height: 40px;
-  border-radius: 10px;
-  display:inline-flex;
-  align-items:center;
-  justify-content:center;
-  background: var(--text);
-  color: #fff;
-  font-weight: 600;
-  font-family: var(--serif);
-  font-size: 18px;
-  flex: 0 0 auto;
-}
-.step-h{
-  margin: 0 0 6px;
-  font-size: 16px;
-  font-weight: 600;
-}
-.step-p{
-  margin: 0;
-  color: var(--muted);
-  line-height: 1.6;
-}
+  <section class="section section-alt" id="gallery">
+    <div class="container">
+      <div class="section-head reveal">
+        <h2 class="section-title">The Space</h2>
+        <p class="section-lead">A calming environment in Santa Monica.</p>
+      </div>
 
-/* Quote card */
-.quote-card{
-  border-radius: var(--radius2);
-  background: var(--accent2); /* Warm beige background */
-  background: linear-gradient(135deg, #e3dacd, #d4c5b0);
-  padding: 30px;
-  box-shadow: var(--shadow);
-  color: #3e3830;
-}
-.quote{
-  margin: 0 0 20px;
-  font-size: 19px;
-  line-height: 1.6;
-  font-family: var(--serif);
-  font-style: italic;
-}
-.quote-meta{
-  display:flex;
-  align-items:center;
-  gap: 12px;
-  margin-bottom: 20px;
-}
-.avatar{
-  width: 48px;
-  height: 48px;
-  border-radius: 50%;
-  overflow: hidden;
-  background: #fff;
-  border: 2px solid rgba(255,255,255,0.4);
-}
-.quote-name{
-  margin: 0;
-  font-weight: 700;
-  font-size: 15px;
-}
+      <div class="gallery reveal" aria-label="Practice photos">
+        <div class="gallery-tile">
+          <img src="office-space-01.webp" alt="Therapy Office" loading="lazy" />
+        </div>
+        <div class="gallery-tile">
+          <img src="office-space-02.webp" alt="Comfortable seating area" loading="lazy" />
+        </div>
+      </div>
+    </div>
+  </section>
 
-/* Testimonials */
-.testimonials{
-  display:grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 20px;
-}
-.tcard{
-  border-radius: var(--radius2);
-  background: #fff;
-  border: 1px solid var(--line);
-  padding: 24px;
-  box-shadow: 0 8px 24px rgba(0,0,0,0.04);
-}
-.ttext{
-  margin: 0 0 14px;
-  line-height: 1.7;
-  color: var(--text);
-  font-style: italic;
-  font-family: var(--serif);
-}
-.tmeta{
-  margin: 0;
-  font-size: 12px;
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
-  color: var(--muted);
-}
+  <section class="section section-alt" id="services">
+    <div class="container">
+      <div class="section-head reveal">
+        <h2 class="section-title">Services & Specialties</h2>
+        <p class="section-lead">
+          I specialize in helping individuals and couples navigate complex emotional challenges.
+        </p>
+      </div>
 
-/* Pricing */
-.pricing{
-  margin-top: 24px;
-  display:grid;
-  gap: 16px;
-}
-.pricebox{
-  border-radius: var(--radius2);
-  background: #fff;
-  border: 1px solid var(--line);
-  padding: 20px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 14px;
-}
-.price-content{ flex: 1; }
-.price-h{
-  margin: 0 0 4px;
-  font-size: 15px;
-  font-weight: 600;
-  color: var(--text);
-}
-.price-p{
-  margin: 0;
-  color: var(--muted);
-  font-size: 14px;
-}
-.price-tag{
-  background: var(--soft);
-  padding: 6px 12px;
-  border-radius: 8px;
-  font-weight: 600;
-  color: var(--text);
-  font-size: 14px;
-}
+      <div class="cards">
+        <article class="card reveal">
+          <h3 class="card-h">Anxiety & Depression</h3>
+          <p class="card-p">Understanding the root causes of distress to foster compassion for your struggles and improve coping skills.</p>
+          <p class="card-mini">Mood Disorders</p>
+        </article>
 
-/* Accordion */
-.accordion{
-  max-width: 800px;
-  margin: 0 auto;
-  display:grid;
-  gap: 12px;
-}
-.acc-item{
-  width: 100%;
-  text-align:left;
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  gap: 12px;
-  padding: 18px 20px;
-  border-radius: var(--radius);
-  background: #fff;
-  border: 1px solid var(--line);
-  cursor: pointer;
-  font: inherit;
-  transition: background 160ms ease;
-}
-.acc-item:hover{
-  background: #fcfcfc;
-}
-.acc-q{
-  font-weight: 600;
-  color: var(--text);
-  font-size: 15px;
-}
-.acc-ic{
-  width: 20px;
-  height: 20px;
-  border-radius: 50%;
-  background: var(--soft);
-  position: relative;
-  flex: 0 0 auto;
-}
-.acc-ic::before,
-.acc-ic::after{
-  content:"";
-  position:absolute;
-  top:50%;
-  left:50%;
-  width: 10px;
-  height: 2px;
-  background: var(--text);
-  transform: translate(-50%,-50%);
-}
-.acc-ic::after{
-  width: 2px;
-  height: 10px;
-  transition: transform 200ms ease;
-}
-.acc-item[aria-expanded="true"] .acc-ic::after{
-  transform: translate(-50%,-50%) rotate(90deg);
-}
-.acc-a{
-  background: transparent;
-  padding: 10px 20px 20px;
-  line-height: 1.7;
-  color: var(--muted);
-  border-left: 2px solid var(--line);
-  margin-left: 20px;
-}
+        <article class="card reveal">
+          <h3 class="card-h">Relationship Issues</h3>
+          <p class="card-p">Improving your capacity for intimate relationships and addressing conflicts, whether you are coming as an individual or a couple.</p>
+          <p class="card-mini">Connection & Intimacy</p>
+        </article>
 
-/* Contact */
-.contact-block{
-  margin-top: 24px;
-  display:grid;
-  gap: 16px;
-}
-.contact-line{
-  display:flex;
-  gap: 16px;
-  align-items:center;
-  padding: 18px;
-  border-radius: var(--radius);
-  background: #fff;
-  border: 1px solid var(--line);
-}
-.cicon{
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  display:inline-flex;
-  align-items:center;
-  justify-content:center;
-  background: var(--soft);
-  color: var(--text);
-}
-.ck{
-  margin: 0 0 2px;
-  font-size: 11px;
-  text-transform: uppercase;
-  color: var(--muted);
-  letter-spacing: 0.5px;
-}
-.cv{
-  margin: 0;
-  font-weight: 600;
-  color: var(--text);
-  font-size: 15px;
-}
-.map{
-  margin-top: 20px;
-  border-radius: var(--radius2);
-  overflow:hidden;
-  border: 1px solid var(--line);
-  background: #eee;
-  box-shadow: var(--shadow);
-}
-.map iframe{
-  width:100%;
-  height: 280px;
-  border: 0;
-  display:block;
-  opacity: 0.9;
-}
+        <article class="card reveal">
+          <h3 class="card-h">Identity & Self Esteem</h3>
+          <p class="card-p">Working through issues related to self-worth, narcissistic traits, or identity to build a stronger relationship with yourself.</p>
+          <p class="card-mini">Growth & Insight</p>
+        </article>
 
-/* Form */
-.form{
-  border-radius: var(--radius2);
-  background: #fff;
-  border: 1px solid var(--line);
-  padding: 30px;
-  box-shadow: var(--shadow);
-}
-.form-title{
-  margin: 0 0 20px;
-  font-size: 20px;
-  font-family: var(--serif);
-}
-.field{
-  display:block;
-  margin-bottom: 16px;
-}
-.label{
-  display:block;
-  margin-bottom: 6px;
-  font-size: 13px;
-  color: var(--text);
-  font-weight: 500;
-}
-.input{
-  width: 100%;
-  border-radius: 8px;
-  padding: 14px 14px;
-  border: 1px solid #d1d5db;
-  background: #f9fafb;
-  color: var(--text);
-  outline: none;
-  font: inherit;
-  transition: all 160ms ease;
-}
-.input:focus{
-  border-color: var(--accent);
-  background: #fff;
-  box-shadow: 0 0 0 3px rgba(124, 148, 115, 0.15);
-}
-.textarea{
-  resize: vertical;
-  min-height: 140px;
-}
+        <article class="card reveal">
+          <h3 class="card-h">LGBTQ+ Affirmative</h3>
+          <p class="card-p">A supportive space for individuals of all gender identities and sexual orientations (Transgender, Non-Binary, Queer Allied).</p>
+          <p class="card-mini">Inclusivity & Support</p>
+        </article>
 
-/* Footer */
-.footer{
-  padding: 50px 0;
-  background: #f5f5f4;
-  border-top: 1px solid var(--line);
-}
-.footer-inner{
-  display:grid;
-  grid-template-columns: 1fr auto 1fr;
-  align-items: start;
-  gap: 30px;
-}
-.foot-brand{
-  margin: 0 0 10px;
-  font-weight: 700;
-  font-family: var(--serif);
-  font-size: 18px;
-}
-.foot-legal{
-  text-align: right;
-}
+        <article class="card reveal">
+          <h3 class="card-h">Trauma & PTSD</h3>
+          <p class="card-p">Processing sexual abuse, grief, and past traumas in a safe, paced environment to restore a sense of safety.</p>
+          <p class="card-mini">Healing & Resilience</p>
+        </article>
 
-/* Back to Top Button */
-.to-top {
-  position: fixed;
-  bottom: 24px;
-  right: 24px;
-  width: 44px;
-  height: 44px;
-  border-radius: 50%;
-  background: var(--text);
-  color: #fff;
-  border: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-  opacity: 0;
-  pointer-events: none;
-  transform: translateY(10px);
-  transition: all 300ms ease;
-  z-index: 90;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
-}
-.to-top:hover {
-  background: var(--accent);
-  transform: translateY(-2px);
-}
-.to-top.show {
-  opacity: 1;
-  pointer-events: auto;
-  transform: translateY(0);
-}
+        <article class="card reveal">
+          <h3 class="card-h">Life Transitions</h3>
+          <p class="card-p">Navigating major life changes, infertility, family conflict, or career shifts with professional guidance.</p>
+          <p class="card-mini">Change & Adaptation</p>
+        </article>
+      </div>
+    </div>
+  </section>
 
-/* ========================================= */
-/* RESPONSIVE & MOBILE MENU LOGIC            */
-/* ========================================= */
+  <section class="section" id="approach">
+    <div class="container split">
+      <div class="reveal">
+        <h2 class="section-title">Treatment Approach</h2>
+        <p class="section-lead">
+          My approach is integrative, drawing from Psychoanalytic, Relational, Attachment-based, and Emotionally Focused therapies.
+        </p>
 
-@media (max-width: 980px){
-  .hero-inner{ grid-template-columns: 1fr; text-align: center; }
-  .hero-lead{ margin-left: auto; margin-right: auto; }
-  .hero-actions{ justify-content: center; }
-  .trust-row{ justify-content: center; }
-  
-  .split{ grid-template-columns: 1fr; }
-  .cards{ grid-template-columns: 1fr 1fr; }
-  .testimonials{ grid-template-columns: 1fr; }
-  .footer-inner{ grid-template-columns: 1fr; text-align: center; }
-  
-  .foot-legal{ text-align: center; }
-  
-  .foot-links{ justify-content: center; }
-}
+        <div class="steps">
+          <div class="step reveal">
+            <div class="step-n">1</div>
+            <div class="step-b">
+              <h3 class="step-h">Engage Curiosity</h3>
+              <p class="step-p">We explore how early experiences and unconscious motivations shape your current thoughts and fears.</p>
+            </div>
+          </div>
 
-@media (max-width: 760px){
-  /* Show the toggle button */
-  .nav-toggle{
-    display:flex;
-  }
+          <div class="step reveal">
+            <div class="step-n">2</div>
+            <div class="step-b">
+              <h3 class="step-h">Build Trust</h3>
+              <p class="step-p">We build a trusting relationship where you can be your genuine self, which is key to successful therapy.</p>
+            </div>
+          </div>
 
-  /* Hide the panel by default, style it as a dropdown */
-  .nav-panel{
-    display:none; /* Hidden */
-    flex-direction: column;
-    align-items: stretch;
-    gap: 8px;
-    
-    position: absolute;
-    right: 0;
-    top: 100%; /* Directly below header */
-    margin-top: 10px;
-    width: min(300px, calc(100vw - 32px));
-    
-    background: #fff;
-    border: 1px solid var(--line);
-    padding: 16px;
-    border-radius: 12px;
-    box-shadow: 0 10px 40px rgba(0,0,0,0.1);
-    z-index: 100;
-  }
-  
-  /* When 'open' class is added via JS */
-  .nav-panel.open{
-    display:flex;
-    animation: slideDown 0.2s ease-out forwards;
-  }
+          <div class="step reveal">
+            <div class="step-n">3</div>
+            <div class="step-b">
+              <h3 class="step-h">Create Change</h3>
+              <p class="step-p">We work to improve the situations causing you distress now and help you live the life you really want.</p>
+            </div>
+          </div>
+        </div>
+      </div>
 
-  /* Stack styling */
-  .cards{ grid-template-columns: 1fr; }
-  .gallery{ grid-template-columns: 1fr; }
-  .to-top { bottom: 16px; right: 16px; }
+      <div class="quote-card reveal">
+        <p class="quote">
+          “Research has shown that the most important factor in predicting successful therapy is the relationship between you and your therapist.”
+        </p>
+        <div class="quote-meta">
+          <div class="avatar">
+            <img src="erica-sanborn-bio.webp" alt="Erica Sanborn Lindgren" loading="lazy" />
+          </div>
+          <div>
+            <p class="quote-name">Erica Sanborn Lindgren</p>
+            <p class="small muted">Psychologist, PhD</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 
-  /* Hamburger Animation Logic 
-     Check if aria-expanded="true" on the button 
-  */
-  .nav-toggle[aria-expanded="true"] .nav-toggle-lines {
-    background: transparent; /* Hide middle line */
-  }
-  .nav-toggle[aria-expanded="true"] .nav-toggle-lines::before {
-    top: 0;
-    transform: rotate(45deg);
-  }
-  .nav-toggle[aria-expanded="true"] .nav-toggle-lines::after {
-    top: 0;
-    transform: rotate(-45deg);
-  }
-}
+  <section class="section" id="fees">
+    <div class="container split">
+      <div class="reveal">
+        <h2 class="section-title">Getting Started</h2>
+        <p class="section-lead">
+          Finding the right therapist can be challenging. I offer a free 15-minute phone consultation to see if we work well together.
+        </p>
 
-/* Simple keyframe for menu entrance */
-@keyframes slideDown {
-  from { opacity: 0; transform: translateY(-10px); }
-  to { opacity: 1; transform: translateY(0); }
-}
+        <div class="pricing">
+          <div class="pricebox reveal">
+            <div class="price-content">
+              <h3 class="price-h">Consultation</h3>
+              <p class="price-p">15-minute phone call.</p>
+            </div>
+            <div class="price-tag">Free</div>
+          </div>
+
+          <div class="pricebox reveal">
+            <div class="price-content">
+              <h3 class="price-h">Individual Session</h3>
+              <p class="price-p">Psychotherapy session.</p>
+            </div>
+            <div class="price-tag">$250</div>
+          </div>
+
+          <div class="pricebox reveal">
+            <div class="price-content">
+              <h3 class="price-h">Insurance</h3>
+              <p class="price-p">Out of Network. Superbills provided.</p>
+            </div>
+            <div class="price-tag">PPO</div>
+          </div>
+        </div>
+        
+        <p class="small muted mt-20">
+          <strong>Payment Methods:</strong> ACH Bank transfer, AmEx, Cash, Check, Discover, HSA, Mastercard, Visa.<br>
+          <strong>Sliding Scale:</strong> Apply if you may be eligible.
+        </p>
+      </div>
+
+      <div class="form reveal">
+        <h3 class="form-title">Ready to connect?</h3>
+        <p class="small muted" style="margin-bottom:20px;">
+          Call or email now for a free consultation.
+        </p>
+        
+        <form id="contactForm" novalidate>
+          <label class="field">
+            <span class="label">Full Name</span>
+            <input class="input" type="text" name="name" required />
+            <span class="error"></span>
+          </label>
+
+          <label class="field">
+            <span class="label">Email Address</span>
+            <input class="input" type="email" name="email" required />
+            <span class="error"></span>
+          </label>
+
+          <label class="field">
+            <span class="label">Message</span>
+            <textarea class="input textarea" name="message" placeholder="Briefly describe what you are looking for..." required></textarea>
+            <span class="error"></span>
+          </label>
+
+          <button class="btn btn-primary btn-full" type="submit">Send Message</button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section-alt" id="faq">
+    <div class="container">
+      <div class="section-head reveal">
+        <h2 class="section-title">Common Questions</h2>
+      </div>
+
+      <div class="accordion reveal" data-accordion>
+        <button class="acc-item" aria-expanded="false">
+          <span class="acc-q">Where is your office located?</span>
+          <span class="acc-ic" aria-hidden="true"></span>
+        </button>
+        <div class="acc-a" hidden>
+          <p>
+            My office is located at 270 26th Street, Suite 202, Santa Monica, CA 90402. I also offer virtual sessions online.
+          </p>
+        </div>
+
+        <button class="acc-item" aria-expanded="false">
+          <span class="acc-q">Do you accept insurance?</span>
+          <span class="acc-ic" aria-hidden="true"></span>
+        </button>
+        <div class="acc-a" hidden>
+          <p>
+            I am an Out-of-Network provider. I can provide you with a monthly statement ("superbill") that you can submit to your insurance company for potential reimbursement. Please check your Out-of-Network benefits.
+          </p>
+        </div>
+
+        <button class="acc-item" aria-expanded="false">
+          <span class="acc-q">What are your fees?</span>
+          <span class="acc-ic" aria-hidden="true"></span>
+        </button>
+        <div class="acc-a" hidden>
+          <p>
+            Individual sessions are $250. I do offer a sliding scale for eligible clients. I accept Cash, Check, Credit Cards, and HSA.
+          </p>
+        </div>
+
+        <button class="acc-item" aria-expanded="false">
+          <span class="acc-q">Who do you work with?</span>
+          <span class="acc-ic" aria-hidden="true"></span>
+        </button>
+        <div class="acc-a" hidden>
+          <p>
+            I work with adults (individuals and couples). My client focus is inclusive, welcoming LGBTQ+ individuals and people from diverse backgrounds.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="contact">
+    <div class="container split">
+      <div class="reveal">
+        <h2 class="section-title">Location & Contact</h2>
+        <div class="contact-block">
+          <div class="contact-line reveal">
+            <span class="cicon" aria-hidden="true">📍</span>
+            <div>
+              <p class="ck">Address</p>
+              <p class="cv">270 26th Street, Suite 202<br>Santa Monica, CA 90402</p>
+            </div>
+          </div>
+
+          <div class="contact-line reveal">
+            <span class="cicon" aria-hidden="true">☎</span>
+            <div>
+              <p class="ck">Phone</p>
+              <a class="cv" href="tel:4243178124">(424) 317-8124</a>
+            </div>
+          </div>
+
+          <div class="contact-line reveal">
+            <span class="cicon" aria-hidden="true">✉</span>
+            <div>
+              <p class="ck">Email</p>
+              <a class="cv" href="mailto:contact@ericasanborn.com">contact@ericasanborn.com</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="map reveal">
+        <iframe 
+          title="Map of Santa Monica Office"
+          src="https://maps.google.com/maps?q=270+26th+Street+Santa+Monica+CA+90402&t=&z=15&ie=UTF8&iwloc=&output=embed" 
+          width="100%" 
+          height="100%" 
+          style="border:0;" 
+          allowfullscreen="" 
+          loading="lazy" 
+          referrerpolicy="no-referrer-when-downgrade">
+        </iframe>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container footer-inner">
+      <div class="foot-left">
+        <p class="foot-brand">Erica Sanborn Lindgren</p>
+        <p class="small muted">
+          Psychologist, PhD (PSY#31500)<br>
+          Santa Monica & Online.
+        </p>
+      </div>
+
+      <div class="foot-links">
+        <a class="foot-link" href="#services">Services</a>
+        <a class="foot-link" href="#about">About</a>
+        <a class="foot-link" href="#contact">Contact</a>
+      </div>
+
+      <div class="foot-legal">
+        <p class="small muted">© <span id="year">2026</span> Erica Sanborn Lindgren. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <button class="to-top" id="toTop" aria-label="Scroll to top">
+    <span aria-hidden="true">↑</span>
+  </button>
+
+  <script>
+    (function () {
+      "use strict";
+
+      const ready = (fn) => {
+        if (document.readyState === "loading") {
+          document.addEventListener("DOMContentLoaded", fn, { once: true });
+        } else {
+          fn();
+        }
+      };
+
+      ready(() => {
+        // Current year
+        const yearEl = document.getElementById("year");
+        if (yearEl) yearEl.textContent = String(new Date().getFullYear());
+
+        // Mobile navigation
+        const navToggle = document.getElementById("navToggle");
+        const navPanel = document.getElementById("navPanel");
+
+        if (navToggle && navPanel) {
+          const closeNav = () => {
+            navPanel.classList.remove("open");
+            navToggle.setAttribute("aria-expanded", "false");
+          };
+
+          navToggle.addEventListener("click", (e) => {
+            e.stopPropagation();
+            const isOpen = navPanel.classList.toggle("open");
+            navToggle.setAttribute("aria-expanded", isOpen ? "true" : "false");
+          });
+
+          document.addEventListener("click", (e) => {
+            if (!navPanel.contains(e.target) && !navToggle.contains(e.target)) closeNav();
+          });
+
+          document.addEventListener("keydown", (e) => {
+            if (e.key === "Escape") closeNav();
+          });
+
+          navPanel.querySelectorAll("a").forEach((link) => {
+            link.addEventListener("click", closeNav);
+          });
+        }
+
+        // Accordion
+        document.querySelectorAll("[data-accordion]").forEach((accordion) => {
+          const buttons = Array.from(accordion.querySelectorAll(".acc-item"));
+          buttons.forEach((btn) => {
+            btn.addEventListener("click", () => {
+              const isExpanded = btn.getAttribute("aria-expanded") === "true";
+
+              // Close all
+              buttons.forEach((b) => {
+                b.setAttribute("aria-expanded", "false");
+                const panel = b.nextElementSibling;
+                if (panel && panel.classList.contains("acc-a")) panel.hidden = true;
+              });
+
+              // Open current if it was closed
+              btn.setAttribute("aria-expanded", isExpanded ? "false" : "true");
+              const panel = btn.nextElementSibling;
+              if (panel && panel.classList.contains("acc-a")) panel.hidden = isExpanded;
+            });
+          });
+        });
+
+        // Scroll to top
+        const toTop = document.getElementById("toTop");
+        if (toTop) {
+          const setState = () => {
+            if (window.scrollY > 450) toTop.classList.add("show");
+            else toTop.classList.remove("show");
+          };
+
+          window.addEventListener("scroll", setState, { passive: true });
+          setState();
+
+          toTop.addEventListener("click", () => {
+            window.scrollTo({ top: 0, behavior: "smooth" });
+          });
+        }
+
+        // Lightweight form validation
+        const form = document.getElementById("contactForm");
+        if (form) {
+          const markInvalid = (el, isInvalid) => {
+            if (isInvalid) el.classList.add("invalid");
+            else el.classList.remove("invalid");
+          };
+
+          form.addEventListener("submit", (e) => {
+            // For now, this just prevents default if fields are empty
+            // In a real site, you'd wire this to a backend or service (like Formspree)
+            const requiredFields = Array.from(form.querySelectorAll("[required]"));
+            let ok = true;
+
+            requiredFields.forEach((field) => {
+              const value = (field.value || "").trim();
+              const invalid = value.length === 0;
+              markInvalid(field, invalid);
+              if (invalid) ok = false;
+            });
+            
+            if (!ok) {
+                e.preventDefault();
+            } else {
+                // Optional: alert or console log for demo
+                // alert("Message sent! (Demo)");
+            }
+          });
+
+          form.querySelectorAll("input, textarea").forEach((field) => {
+            field.addEventListener("input", () => markInvalid(field, false));
+            field.addEventListener("blur", () => {
+              if (field.hasAttribute("required")) markInvalid(field, (field.value || "").trim().length === 0);
+            });
+          });
+        }
+
+        // Scroll reveal (load on user scroll)
+        const revealEls = Array.from(document.querySelectorAll(".reveal"));
+        if (!revealEls.length) return;
+
+        const show = (el) => el.classList.add("in-view");
+
+        if (!("IntersectionObserver" in window)) {
+          revealEls.forEach(show);
+          return;
+        }
+
+        const io = new IntersectionObserver(
+          (entries) => {
+            entries.forEach((entry) => {
+              if (entry.isIntersecting) {
+                show(entry.target);
+                io.unobserve(entry.target);
+              }
+            });
+          },
+          { threshold: 0.12, rootMargin: "0px 0px -10% 0px" }
+        );
+
+        revealEls.forEach((el) => io.observe(el));
+      });
+    })();
+  </script>
+</body>
+</html>
