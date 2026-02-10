@@ -80,7 +80,7 @@
     <div class="container hero-inner">
       <div class="hero-copy reveal">
         <p class="kicker">Anxiety, Depression & Relationship Issues</p>
-        <h1 class="hero-title">Deepening Relationships.<br>Elevating Lives.</h1>
+        <h1 class="hero-title">A safe place to be real.<br>And a clear path forward.</h1>
         <p class="hero-lead">
           If you’re feeling overwhelmed, dissatisfied, or disengaged, therapy can help you understand why. I offer a safe space in Santa Monica to understand your present and create the life you desire.
         </p>
@@ -180,7 +180,7 @@
           </div>
           <div class="bullet">
             <div class="bullet-dot">03</div>
-            <p><strong>Experienced Care.</strong> With over 11 years in practice and training from the Wright Institute Los Angeles, I bring deep expertise.</p>
+            <p><strong>Experienced Care.</strong> With clinical experience since 2015 and training from the Wright Institute Los Angeles, I bring deep expertise.</p>
           </div>
         </div>
       </div>
@@ -357,7 +357,7 @@
 
           <div class="pricebox reveal">
             <div class="price-content">
-              <h3 class="price-h">Insurance</h3>
+              <h3 class="price-h">Reimbursement</h3>
               <p class="price-p">Out of Network. Superbills provided.</p>
             </div>
             <div class="price-tag">PPO</div>
@@ -366,8 +366,7 @@
         
         <p class="small muted mt-20">
           <strong>Payment Methods:</strong> ACH Bank transfer, AmEx, Cash, Check, Discover, HSA, Mastercard, Visa.<br>
-          <strong>Sliding Scale:</strong> Apply if you may be eligible.
-        </p>
+          </p>
       </div>
 
       <div class="form reveal">
@@ -424,7 +423,7 @@
         </button>
         <div class="acc-a" hidden>
           <p>
-            I am an Out-of-Network provider. I can provide you with a monthly statement ("superbill") that you can submit to your insurance company for potential reimbursement. Please check your Out-of-Network benefits.
+            I am an Out-of-Network provider. This means you pay me directly, and I provide you with a monthly statement ("superbill") that you can submit to your insurance company for reimbursement. Please check your insurance plan's Out-of-Network benefits.
           </p>
         </div>
 
@@ -434,7 +433,7 @@
         </button>
         <div class="acc-a" hidden>
           <p>
-            Individual sessions are $250. I do offer a sliding scale for eligible clients. I accept Cash, Check, Credit Cards, and HSA.
+            Individual sessions are $250. I do offer a sliding scale for eligible clients upon request. I accept Cash, Check, Credit Cards, and HSA.
           </p>
         </div>
 
@@ -616,8 +615,6 @@
           };
 
           form.addEventListener("submit", (e) => {
-            // For now, this just prevents default if fields are empty
-            // In a real site, you'd wire this to a backend or service (like Formspree)
             const requiredFields = Array.from(form.querySelectorAll("[required]"));
             let ok = true;
 
@@ -630,9 +627,6 @@
             
             if (!ok) {
                 e.preventDefault();
-            } else {
-                // Optional: alert or console log for demo
-                // alert("Message sent! (Demo)");
             }
           });
 
